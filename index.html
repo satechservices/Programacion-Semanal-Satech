@@ -613,13 +613,13 @@ const ASSIGNMENTS = [
     slots:{
       MAR21:{techs:['SP','WD'], supervisors:['AB']},
       JUE23:{techs:['WD'], note:'Entrega del proyecto.'}
-    }, note:'Instalación terminó el martes.'},
+    }, note:'Instalación debe terminar el mismo martes.'},
   {py:'26114', client:'Clínica Nueva', activity:'Control de acceso urgencias (piso 1)',
     slots:{
       MAR21:{supervisors:['AB']},
       MIE22:{techs:['SP','WD']},
       JUE23:{techs:['WD'], note:'Entrega del proyecto.'}
-    }, note:'Instalación terminó el miércoles.'},
+    }, note:'Instalación debe terminar el mismo miércoles.'},
   {py:'26132', client:'Plaza de Toros', activity:'Segunda visita de mantenimiento',
     slots:{
       MAR21:{techs:['GG'], pending:true},
@@ -628,24 +628,20 @@ const ASSIGNMENTS = [
       VIE24:{techs:['GG','SP','CJ']},
       SAB25:{techs:['GG','SP','CJ']}
     },
-    note:'Guillermo va toda la semana hasta el sábado. Posso se suma jueves a sábado. Carolina se suma viernes y sábado.',
+    note:'Guillermo va toda la semana hasta el sábado. Sebastián Posso se suma de jueves a sábado. Carolina se suma viernes y sábado.',
     pendingNote:'Falta asignar compañero para Guillermo el martes y miércoles.'},
   {py:'26133', client:'Jardín Central 1', activity:'Suministro e instalación de controladora de acceso',
     slots:{MIE22:{techs:['CE','JV']}}},
   {py:'26103', client:'Jardín Central 2', activity:'Primera visita de mantenimiento',
-    slots:{JUE23:{techs:['JV','LG']}}, note:'Se entrega informe el jueves.'},
+    slots:{JUE23:{techs:['JV','LG']}}, note:'Se entrega informe este día.'},
   {py:'26097', client:'Jardín Central 2', activity:'Mantenimiento sistema de seguridad electrónica',
-    slots:{JUE23:{techs:['JV','LG']}}, note:'Se entrega informe el jueves.'},
+    slots:{JUE23:{techs:['JV','LG']}}, note:'Se entrega informe este día.'},
   {py:'26134', client:'Jardín Central 2', activity:'Mantenimiento Parking Deck 3',
-    slots:{JUE23:{techs:['JV','LG']}}, note:'Se entrega informe el jueves.'},
+    slots:{JUE23:{techs:['JV','LG']}}, note:'Se entrega informe este día.'},
   {py:'26118', client:'C3', activity:'Alquiler de pantalla',
     slots:{MIE22:{techs:['JV','LG','AB']}, JUE23:{techs:['JV','LG','AB']}},
     note:'Miércoles 9:00 am–12:00 m: capacitación. Jueves: presentación.'}
 ];
-
-const EXTRA_NOTES = {
-  'CJ': ['Capacitación viernes 8:00–10:00 am y 10:00 am–12:00 m.', 'Viernes 8:00 am–12:00 m (después de la capacitación) y sábado: apoya en Plaza de Toros.']
-};
 
 // Days a technician is explicitly OFF (not just unassigned) — shown instead of the generic "sin actividad" message.
 const OFF_DAYS = {
@@ -655,7 +651,7 @@ const OFF_DAYS = {
 };
 
 const GENERAL_NOTES = [
-  'Jueves en la mañana: entrevistas, después de la reunión semanal del equipo.'
+  'Jueves en la mañana: Reunión semanal equipo directivo (8:00 - 10:00 am) ; realización entrevistas cargo aux. administrativa (10:00 am - 12:00 pm).'
 ];
 
 // ---------- populate select ----------
