@@ -30,6 +30,7 @@
     --c-c3:#FF8A4C;
     --c-inhome:#D65DB1;
     --c-interno:#6C7A89;
+    --c-hoyos:#38BDF8;
   }
 
   *{box-sizing:border-box;}
@@ -486,7 +487,7 @@
 
   <div class="eyebrow">Programación semanal</div>
   <h1>Bienvenido a la programación semanal de Satech Services</h1>
-  <div class="date-range">20 al 26 de julio</div>
+  <div class="date-range">27 de julio al 2 de agosto</div>
 
   <div class="picker">
     <div class="picker-label">Selecciona tu nombre</div>
@@ -548,14 +549,17 @@
 
 <script>
 const DAYS = [
-  {key:'MAR21', label:'Martes 21', short:'MAR', num:'21'},
-  {key:'MIE22', label:'Miércoles 22', short:'MIÉ', num:'22'},
-  {key:'JUE23', label:'Jueves 23', short:'JUE', num:'23'},
-  {key:'VIE24', label:'Viernes 24', short:'VIE', num:'24'},
-  {key:'SAB25', label:'Sábado 25', short:'SÁB', num:'25'}
+  {key:'LUN27', label:'Lunes 27', short:'LUN', num:'27'},
+  {key:'MAR28', label:'Martes 28', short:'MAR', num:'28'},
+  {key:'MIE29', label:'Miércoles 29', short:'MIÉ', num:'29'},
+  {key:'JUE30', label:'Jueves 30', short:'JUE', num:'30'},
+  {key:'VIE31', label:'Viernes 31', short:'VIE', num:'31'},
+  {key:'SAB01', label:'Sábado 1 ago', short:'SÁB', num:'1'}
 ];
-// Lunes 20 has no assignments this week; kept out of the active strip but
-// mentioned in the range. Add it back here if a future week needs it.
+
+// Coordinadores: se mueven entre proyectos según necesidad y no siempre
+// tienen una tarea fija cada día — esto es normal, no es un error.
+const COORDINATORS = ['WD','AB','LG'];
 
 const TECHS = [
   {id:'JC', name:'Julián Cuartas'},
@@ -578,82 +582,70 @@ const CLIENT_COLOR = {
   'Zonamerica':'var(--c-zonamerica)',
   'Jardín Plaza Cali':'var(--c-cali)',
   'Jardín Plaza Cúcuta':'var(--c-cucuta)',
-  'Clínica Nueva':'var(--c-clinica)',
   'Plaza de Toros':'var(--c-toros)',
   'Jardín Central 1':'var(--c-jc1)',
-  'Jardín Central 2':'var(--c-jc2)',
-  'C3':'var(--c-c3)',
-  'IN-HOME':'var(--c-inhome)',
+  'Hoyostools Centro':'var(--c-hoyos)',
+  'Occupational Center':'var(--c-interno)',
   'Satech (interno)':'var(--c-interno)'
 };
 
 const ASSIGNMENTS = [
-  {py:'26122', client:'Zonamerica', activity:'Mantenimiento sistema de CCTV',
-    slots:{MAR21:{techs:['JC','JF','CJ'], supervisors:['AB']}, MIE22:{techs:['JC','JF','CJ']}, JUE23:{techs:['JC','JF','CJ']}, VIE24:{techs:['JC','JF']}, SAB25:{techs:['JC','JF']}},
-    note:'Martes ingresan 6:00 am. Se debe enviar documentación; toda herramienta entra con correo electrónico. La escalera debe llegar antes del viernes 17/julio a Zonamerica.'},
   {py:'26112', client:'Zonamerica', activity:'Desmonte e instalación de cableado de datos, edificio A',
-    slots:{MAR21:{techs:['SM','FC'], supervisors:['AB']}, MIE22:{techs:['SM','FC']}, JUE23:{techs:['SM','FC']}, VIE24:{techs:['SM','FC']}},
-    note:'Horario 5:00 pm – 2:00 am.'},
-  {py:'26129', client:'Zonamerica', activity:'Suministro e instalación talanquera motos',
-    slots:{MAR21:{supervisors:['AB']}, VIE24:{techs:['AB','WD','LG']}},
-    note:'Solo levantamiento de información. Proyecto creado el 16/07/2026, aún sin contrato.'},
-  {py:'26123', client:'IN-HOME', activity:'Instalación CCTV',
-    slots:{MAR21:{techs:['AB']}, SAB25:{techs:['WD']}}},
-  {py:'', client:'Satech (interno)', activity:'Reunión semanal del equipo',
-    slots:{JUE23:{techs:['AB','WD']}}, note:'8:00 – 10:00 am.'},
+    slots:{LUN27:{techs:['SM','FC']}},
+    note:'Se termina el proyecto este día. Horario 5:00 pm – 2:00 am.'},
   {py:'26130', client:'Jardín Plaza Cali', activity:'Mantenimiento sistema de seguridad',
     slots:{
-      MAR21:{techs:['CE','LG'], note:'Jorge Villota está en permiso y no trabaja este día.'},
-      MIE22:{techs:['CE','JV']}, JUE23:{techs:['CE','JV']}, VIE24:{techs:['CE','JV']},
-      SAB25:{techs:['CE','JV','AB']}
+      LUN27:{techs:['JC','CE','SP']},
+      MAR28:{techs:['JC','CE','FC']},
+      MIE29:{techs:['JC','CE']},
+      JUE30:{techs:['JC','CE']},
+      VIE31:{techs:['JC','CE']},
+      SAB01:{techs:['JC','CE']}
     }},
   {py:'26131', client:'Jardín Plaza Cúcuta', activity:'Mantenimiento sistema de seguridad',
-    slots:{MAR21:{techs:['WM','AM']}, MIE22:{techs:['WM','AM']}, JUE23:{techs:['WM','AM']}, VIE24:{techs:['WM','AM']}, SAB25:{techs:['WM','AM']}}},
-  {py:'26115', client:'Clínica Nueva', activity:'Control de acceso sótano 2',
-    slots:{
-      MAR21:{techs:['SP','WD'], supervisors:['AB']},
-      JUE23:{techs:['WD'], note:'Entrega del proyecto.'}
-    }, note:'Instalación debe terminar el mismo martes.'},
-  {py:'26114', client:'Clínica Nueva', activity:'Control de acceso urgencias (piso 1)',
-    slots:{
-      MAR21:{supervisors:['AB']},
-      MIE22:{techs:['SP','WD']},
-      JUE23:{techs:['WD'], note:'Entrega del proyecto.'}
-    }, note:'Instalación debe terminar el mismo miércoles.'},
+    slots:{LUN27:{techs:['WM','AM']}, MAR28:{techs:['WM','AM']}, MIE29:{techs:['WM','AM']}, JUE30:{techs:['WM','AM']}, VIE31:{techs:['WM','AM']}, SAB01:{techs:['WM','AM']}}},
   {py:'26132', client:'Plaza de Toros', activity:'Segunda visita de mantenimiento',
     slots:{
-      MAR21:{techs:['GG'], pending:true},
-      MIE22:{techs:['GG'], pending:true},
-      JUE23:{techs:['GG','SP']},
-      VIE24:{techs:['GG','SP','CJ']},
-      SAB25:{techs:['GG','SP','CJ']}
+      LUN27:{techs:['GG','JF']},
+      MAR28:{techs:['GG','JF']},
+      MIE29:{techs:['GG','JF','CJ','FC'], note:'Desde hoy se trabaja en alturas. Fabio ingresa a medio día (viene de trasnocho).'},
+      JUE30:{techs:['GG','JF','CJ','FC']},
+      VIE31:{techs:['GG','JF','CJ','FC']},
+      SAB01:{techs:['GG','JF','CJ','FC']}
     },
-    note:'Guillermo va toda la semana hasta el sábado. Sebastián Posso se suma de jueves a sábado. Carolina se suma viernes y sábado.',
-    pendingNote:'Falta asignar compañero para Guillermo el martes y miércoles.'},
+    note:'A partir del miércoles se realiza trabajo en alturas; se suman Carolina y Fabio (Fabio ingresa a medio día porque viene de trasnocho).'},
   {py:'26133', client:'Jardín Central 1', activity:'Suministro e instalación de controladora de acceso',
-    slots:{MIE22:{techs:['CE','JV']}}},
-  {py:'26103', client:'Jardín Central 2', activity:'Primera visita de mantenimiento',
-    slots:{JUE23:{techs:['JV','LG']}}, note:'Se entrega informe este día.'},
-  {py:'26097', client:'Jardín Central 2', activity:'Mantenimiento sistema de seguridad electrónica',
-    slots:{JUE23:{techs:['JV','LG']}}, note:'Se entrega informe este día.'},
-  {py:'26134', client:'Jardín Central 2', activity:'Mantenimiento Parking Deck 3',
-    slots:{JUE23:{techs:['JV','LG']}}, note:'Se entrega informe este día.'},
-  {py:'26118', client:'C3', activity:'Alquiler de pantalla',
-    slots:{MIE22:{techs:['JV','LG','AB']}, JUE23:{techs:['JV','LG','AB']}},
-    note:'Miércoles 9:00 am–12:00 m: capacitación. Jueves: presentación.'}
+    slots:{LUN27:{techs:['WD','AB']}},
+    note:'La instalación la realizan Alex Bernal y Wilber Duque.'},
+  {py:'26145', client:'Hoyostools Centro', activity:'Suministro e instalación sistemas de seguridad electrónica, piso 7',
+    slots:{
+      MAR28:{techs:['SM','SP'], note:'Marroquín ingresa a medio día (viene de trasnocho).'},
+      MIE29:{techs:['SM','SP']}, JUE30:{techs:['SM','SP']}, VIE31:{techs:['SM','SP']}, SAB01:{techs:['SM','SP']}
+    }},
+  {py:'', client:'Occupational Center', activity:'Exámenes médicos periódicos',
+    slots:{LUN27:{techs:['JF']}},
+    note:'7:00 a. m. Debe presentarse en Occupational Center.'},
+  {py:'', client:'Satech (interno)', activity:'Capacitación: consumo de tabaco',
+    slots:{MIE29:{techs:['JC','JF','CJ','SM','FC','AB','WD','LG','CE','JV','WM','AM','SP','GG']}},
+    note:'8:00 – 10:00 am. Aplica a todo el personal.'},
+  {py:'', client:'Satech (interno)', activity:'Capacitación: acoso laboral',
+    slots:{MIE29:{techs:['WD','JC','CJ']}},
+    note:'10:00 am – 12:00 m.'},
+  {py:'', client:'Satech (interno)', activity:'Jornada en oficina',
+    slots:{LUN27:{techs:['CJ']}, MAR28:{techs:['CJ']}}}
 ];
 
-const EXTRA_NOTES = {};
-
-// Days a technician is explicitly OFF (not just unassigned) — shown instead of the generic "sin actividad" message.
-const OFF_DAYS = {
-  'SM': {'SAB25': 'No trabaja: esta semana tuvo horario de 5:00 pm a 2:00 am.'},
-  'FC': {'SAB25': 'No trabaja: esta semana tuvo horario de 5:00 pm a 2:00 am.'},
-  'JV': {'MAR21': 'En permiso, no trabaja este día.'}
+const EXTRA_NOTES = {
+  'SM': ['Pendiente por confirmar la fecha de asistencia para la realización de los exámenes médicos periódicos. La cita podrá programarse entre el lunes y el miércoles, a las 7:00 a. m., dependiendo de si tiene turno nocturno el lunes.']
 };
 
+// Days a technician is explicitly OFF (not just unassigned) — shown instead of the generic "sin actividad" message.
+const OFF_DAYS = {};
+
 const GENERAL_NOTES = [
-  'Jueves en la mañana: Reunión semanal equipo directivo (8:00 - 10:00 am) ; realización entrevistas cargo aux. administrativa (10:00 am - 12:00 pm).'
+  'Miércoles 29: capacitación "Consumo de tabaco" 8:00–10:00 am, para todo el personal.',
+  'Miércoles 29: capacitación "Acoso laboral" 10:00 am–12:00 m, solo para Wilber Duque, Julián Cuartas y Carolina Játiva.',
+  'Wilber Duque, Alex Bernal y Luis García son coordinadores: se mueven entre proyectos según necesidad, por eso no siempre tienen una tarea fija todos los días.'
 ];
 
 // ---------- populate select ----------
@@ -729,6 +721,8 @@ function buildPersonal(techId){
       const offReason = OFF_DAYS[techId] && OFF_DAYS[techId][d.key];
       if(offReason){
         body += `<div class="off-msg reason"><span class="off-label">No trabaja</span>${offReason}</div>`;
+      } else if(COORDINATORS.includes(techId)){
+        body += `<div class="off-msg reason"><span class="off-label">Coordinador</span>Sin tarea fija este día — apoya en campo según se necesite.</div>`;
       } else {
         body += `<div class="off-msg">Sin actividad asignada.</div>`;
       }
