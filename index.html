@@ -612,7 +612,6 @@ const ROLE_GROUPS = [
 
 const CLIENT_COLOR = {
   'Jardín Plaza Cali':'var(--c-cali)',
-  'Jardín Central 1':'var(--c-jc1)',
   'Jardín Plaza Cúcuta':'var(--c-cucuta)',
   'Plaza de Toros':'var(--c-toros)',
   'Hoyostools Centro':'var(--c-hoyos)',
@@ -635,8 +634,6 @@ const ASSIGNMENTS = [
       VIE14:{techs:['CE','JF']},
       SAB15:{techs:['CE','JF']}
     }},
-  {py:'26155', client:'Jardín Central 1', activity:'Suministro e instalación de UPS',
-    slots:{VIE14:{techs:['WD']}}},
   {py:'26154', client:'Jardín Plaza Cúcuta', activity:'Mantenimiento sistema de seguridad electrónica agosto',
     slots:{LUN10:{techs:['AM','SR']}, MAR11:{techs:['AM','SR']}, MIE12:{techs:['AM','SR']}, JUE13:{techs:['AM','SR']}, VIE14:{techs:['AM','SR']}, SAB15:{techs:['AM','SR']}}},
   {py:'26132', client:'Plaza de Toros', activity:'Sistema de control de acceso',
@@ -644,9 +641,9 @@ const ASSIGNMENTS = [
       LUN10:{techs:['CJ','SM','GG','JF']},
       MAR11:{techs:['CJ','SM','GG','JF']},
       MIE12:{techs:['CJ','SM','GG']},
-      JUE13:{techs:['CJ','SM','GG','JV','WD']},
-      VIE14:{techs:['CJ','SM','GG','JV']},
-      SAB15:{techs:['CJ','SM','GG','JV']}
+      JUE13:{techs:['CJ','SM','GG']},
+      VIE14:{techs:['CJ','SM','GG']},
+      SAB15:{techs:['CJ','SM','GG']}
     }},
   {py:'26145', client:'Hoyostools Centro', activity:'Suministro e instalación sistemas de seguridad electrónica, piso 7',
     slots:{MIE12:{techs:['SP']}, JUE13:{techs:['SP']}},
@@ -654,10 +651,10 @@ const ASSIGNMENTS = [
   {py:'26157', client:'Hoyostools Centro', activity:'Mantenimiento',
     slots:{LUN10:{techs:['JC']}, MAR11:{techs:['JC']}, MIE12:{techs:['JC']}, JUE13:{techs:['JC']}, VIE14:{techs:['JC']}, SAB15:{techs:['JC']}}},
   {py:'26156', client:'Clínica Nueva', activity:'Desmonte e instalación de control de acceso, urgencias piso 2',
-    slots:{LUN10:{techs:['SP','WD','DP']}, MAR11:{techs:['SP','WD','DP']}}},
+    slots:{LUN10:{techs:['SP','DP']}, MAR11:{techs:['SP','DP']}}},
   {py:'', client:'Hotel On Vacation', activity:'Inspección',
     slots:{
-      MIE12:{techs:['FC','DP','WD']},
+      MIE12:{techs:['FC','DP']},
       JUE13:{techs:['FC','DP']},
       VIE14:{techs:['FC','DP']},
       SAB15:{techs:['FC','DP']}
