@@ -505,7 +505,7 @@
 
   <div class="eyebrow">Programación semanal</div>
   <h1>Bienvenido a la programación semanal de Satech Services</h1>
-  <div class="date-range">10 al 15 de agosto</div>
+  <div class="date-range">Miércoles 12 de agosto</div>
 
   <div class="picker">
     <div class="picker-label">Selecciona tu nombre</div>
@@ -567,12 +567,7 @@
 
 <script>
 const DAYS = [
-  {key:'LUN10', label:'Lunes 10', short:'LUN', num:'10'},
-  {key:'MAR11', label:'Martes 11', short:'MAR', num:'11'},
-  {key:'MIE12', label:'Miércoles 12', short:'MIÉ', num:'12'},
-  {key:'JUE13', label:'Jueves 13', short:'JUE', num:'13'},
-  {key:'VIE14', label:'Viernes 14', short:'VIE', num:'14'},
-  {key:'SAB15', label:'Sábado 15', short:'SÁB', num:'15'}
+  {key:'MIE12', label:'Miércoles 12', short:'MIÉ', num:'12'}
 ];
 
 // Días festivos / no laborables de la semana — se muestran así en vez de "sin actividad".
@@ -611,12 +606,16 @@ const ROLE_GROUPS = [
 
 
 const CLIENT_COLOR = {
+  'Zonamerica':'var(--c-zonamerica)',
   'Jardín Plaza Cali':'var(--c-cali)',
+  'Jardín Central 1':'var(--c-jc1)',
+  'Jardín Central 2':'var(--c-jc2)',
   'Jardín Plaza Cúcuta':'var(--c-cucuta)',
   'Plaza de Toros':'var(--c-toros)',
   'Hoyostools Centro':'var(--c-hoyos)',
   'Clínica Nueva':'var(--c-clinica)',
   'Hotel On Vacation':'var(--c-hotel)',
+  'CLH':'var(--c-c3)',
   'Satech (interno)':'var(--c-interno)'
 };
 
@@ -627,47 +626,25 @@ const ASSIGNMENTS = [
     note:'8:00 am – 12:00 m.'},
   {py:'26153', client:'Jardín Plaza Cali', activity:'Mantenimiento sistema de seguridad electrónica agosto',
     slots:{
-      LUN10:{techs:['FC','CE']},
-      MAR11:{techs:['FC','CE']},
-      MIE12:{techs:['CE','JF']},
-      JUE13:{techs:['CE','JF']},
-      VIE14:{techs:['CE','JF']},
-      SAB15:{techs:['CE','JF']}
+      MIE12:{techs:['CE','DP']}
     }},
+  {py:'', client:'Jardín Central 1', activity:'Mantenimiento',
+    slots:{MIE12:{techs:['CE','DP']}}},
+  {py:'', client:'Jardín Central 2', activity:'Mantenimiento',
+    slots:{MIE12:{techs:['CE','DP']}}},
+  {py:'', client:'Zonamerica', activity:'Actividad programada',
+    slots:{MIE12:{techs:['FC']}}},
+  {py:'', client:'CLH', activity:'Actividad programada',
+    slots:{MIE12:{techs:['JC','JF']}}},
   {py:'26154', client:'Jardín Plaza Cúcuta', activity:'Mantenimiento sistema de seguridad electrónica agosto',
-    slots:{LUN10:{techs:['AM','SR']}, MAR11:{techs:['AM','SR']}, MIE12:{techs:['AM','SR']}, JUE13:{techs:['AM','SR']}, VIE14:{techs:['AM','SR']}, SAB15:{techs:['AM','SR']}}},
+    slots:{MIE12:{techs:['AM','SR']}}},
   {py:'26132', client:'Plaza de Toros', activity:'Sistema de control de acceso',
     slots:{
-      LUN10:{techs:['CJ','SM','GG','JF']},
-      MAR11:{techs:['CJ','SM','GG','JF']},
-      MIE12:{techs:['CJ','SM','GG']},
-      JUE13:{techs:['CJ','SM','GG']},
-      VIE14:{techs:['CJ','SM','GG']},
-      SAB15:{techs:['CJ','SM','GG']}
+      MIE12:{techs:['CJ','SM','GG']}
     }},
   {py:'26145', client:'Hoyostools Centro', activity:'Suministro e instalación sistemas de seguridad electrónica, piso 7',
-    slots:{MIE12:{techs:['SP']}, JUE13:{techs:['SP']}},
-    note:'Pendiente oferta.'},
-  {py:'26157', client:'Hoyostools Centro', activity:'Mantenimiento',
-    slots:{LUN10:{techs:['JC']}, MAR11:{techs:['JC']}, MIE12:{techs:['JC']}, JUE13:{techs:['JC']}, VIE14:{techs:['JC']}, SAB15:{techs:['JC']}}},
-  {py:'26156', client:'Clínica Nueva', activity:'Desmonte e instalación de control de acceso, urgencias piso 2',
-    slots:{LUN10:{techs:['SP','DP']}, MAR11:{techs:['SP','DP']}}},
-  {py:'', client:'Hotel On Vacation', activity:'Inspección',
-    slots:{
-      MIE12:{techs:['FC','DP']},
-      JUE13:{techs:['FC','DP']},
-      VIE14:{techs:['FC','DP']},
-      SAB15:{techs:['FC','DP']}
-    }},
-  {py:'', client:'Satech (interno)', activity:'Capacitación ARL',
-    slots:{MIE12:{techs:['JC','JF','CJ','SM','FC','AB','WD','LG','CE','JV','SR','AM','SP','GG','DP']}},
-    note:'8:00 – 9:00 am. Aplica a todo el personal operativo y administrativo.'},
-  {py:'', client:'Satech (interno)', activity:'Reunión mensual COPASST',
-    slots:{MIE12:{techs:['WD']}},
-    note:'9:30 – 10:30 am. También asiste Narlin (equipo administrativo).'},
-  {py:'', client:'Satech (interno)', activity:'Comité de Convivencia Laboral',
-    slots:{MIE12:{techs:['JC']}},
-    note:'9:30 – 10:30 am. También asiste Doña Liliana (equipo administrativo).'}
+    slots:{MIE12:{techs:['SP']}},
+    note:'Pendiente oferta.'}
 ];
 
 const EXTRA_NOTES = {};
@@ -678,7 +655,7 @@ const OFF_DAYS = {};
 
 const GENERAL_NOTES = [
   'Wilber Duque, Alex Bernal, Luis García y Jorge Villota son coordinadores: se mueven entre proyectos según necesidad, por eso no siempre tienen una tarea fija todos los días.',
-  'Hoyostools Centro (PY 26145) está pendiente de oferta — por eso solo tiene actividad puntual de Posso miércoles y jueves.',
+  'Hoyostools Centro (PY 26145) está pendiente de oferta — por eso solo tiene actividad puntual de Posso.',
   'Sebastián Rodríguez se incorpora esta semana en Jardín Plaza Cúcuta, junto a Anderson Méndez.'
 ];
 
