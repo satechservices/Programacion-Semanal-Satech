@@ -507,7 +507,7 @@
 
   <div class="eyebrow">Programación semanal</div>
   <h1>Bienvenido a la programación semanal de Satech Services</h1>
-  <div class="date-range">17 al 22 de agosto</div>
+  <div class="date-range">24 al 29 de agosto</div>
 
   <div class="picker">
     <div class="picker-label">Selecciona tu nombre</div>
@@ -569,18 +569,16 @@
 
 <script>
 const DAYS = [
-  {key:'LUN17', label:'Lunes 17', short:'LUN', num:'17'},
-  {key:'MAR18', label:'Martes 18', short:'MAR', num:'18'},
-  {key:'MIE19', label:'Miércoles 19', short:'MIÉ', num:'19'},
-  {key:'JUE20', label:'Jueves 20', short:'JUE', num:'20'},
-  {key:'VIE21', label:'Viernes 21', short:'VIE', num:'21'},
-  {key:'SAB22', label:'Sábado 22', short:'SÁB', num:'22'}
+  {key:'LUN24', label:'Lunes 24', short:'LUN', num:'24'},
+  {key:'MAR25', label:'Martes 25', short:'MAR', num:'25'},
+  {key:'MIE26', label:'Miércoles 26', short:'MIÉ', num:'26'},
+  {key:'JUE27', label:'Jueves 27', short:'JUE', num:'27'},
+  {key:'VIE28', label:'Viernes 28', short:'VIE', num:'28'},
+  {key:'SAB29', label:'Sábado 29', short:'SÁB', num:'29'}
 ];
 
 // Días festivos / no laborables de la semana — se muestran así en vez de "sin actividad".
-const HOLIDAYS = {
-  'LUN17': 'Día festivo — no hay actividad programada.'
-};
+const HOLIDAYS = {};
 
 // Coordinadores: se mueven entre proyectos según necesidad y no siempre
 // tienen una tarea fija cada día — esto es normal, no es un error.
@@ -619,37 +617,39 @@ const CLIENT_COLOR = {
   'Jardín Plaza Cúcuta':'var(--c-cucuta)',
   'Colombina':'var(--c-colombina)',
   'Cartón Colombia':'var(--c-carton)',
-  'Hoyostools Centro':'var(--c-hoyos)',
-  'Conjunto Residencial Balcón Campestre':'var(--c-balcon)'
+  'Hotel On Vacation':'var(--c-hotel)',
+  'Oficina Satech':'var(--c-interno)'
 };
 
 
 const ASSIGNMENTS = [
-  {py:'26153', client:'Jardín Plaza Cali', activity:'Mantenimiento sistema de seguridad electrónica agosto (parlantes, racks y códigos QR)',
+  {py:'26153', client:'Jardín Plaza Cali', activity:'Mantenimiento sistema de seguridad electrónica agosto (desmonte de cableado estructural de CCTV e incendio)',
     slots:{
-      MAR18:{techs:['JC','JF','CE']},
-      MIE19:{techs:['JC','JF','CE']},
-      JUE20:{techs:['JC','JF','CE']},
-      VIE21:{techs:['JC','JF','CE','GG']},
-      SAB22:{techs:['JC','JF','CE','GG']}
+      LUN24:{techs:['JC','JF','CE']},
+      MAR25:{techs:['JC','JF','CE','GG']},
+      MIE26:{techs:['JC','JF','CE','GG']},
+      JUE27:{techs:['JC','JF','CE','GG']},
+      VIE28:{techs:['JC','JF','CE','GG']},
+      SAB29:{techs:['JC','JF','CE','GG']}
     }},
   {py:'26154', client:'Jardín Plaza Cúcuta', activity:'Mantenimiento sistema de seguridad electrónica agosto',
-    slots:{MAR18:{techs:['AM','SR']}, MIE19:{techs:['AM','SR']}, JUE20:{techs:['AM','SR']}, VIE21:{techs:['AM','SR']}, SAB22:{techs:['AM','SR']}}},
+    slots:{LUN24:{techs:['AM','SR']}, MAR25:{techs:['AM','SR']}, MIE26:{techs:['AM','SR']}, JUE27:{techs:['AM','SR']}, VIE28:{techs:['AM','SR']}, SAB29:{techs:['AM','SR']}}},
   {py:'26162', client:'Colombina', activity:'Implementación de sistema de detección de incendio en Minimarket',
-    slots:{MAR18:{techs:['FC','SM']}, MIE19:{techs:['FC','SM']}, JUE20:{techs:['FC','SM']}, VIE21:{techs:['FC','SM']}}},
+    slots:{LUN24:{techs:['FC','SM']}, MAR25:{techs:['FC','SM']}, MIE26:{techs:['FC','SM']}}},
   {py:'26163', client:'Colombina', activity:'Revisión de sistema de detección de incendio, planta 2',
     slots:{
-      MAR18:{techs:['DP','WD']},
-      MIE19:{techs:['DP','WD','SP','CJ']},
-      JUE20:{techs:['DP','WD','SP','CJ']},
-      VIE21:{techs:['DP','WD','SP','CJ']}
+      LUN24:{techs:['DP','SP']},
+      MAR25:{techs:['DP','SP']},
+      MIE26:{techs:['DP','SP','CJ']},
+      JUE27:{techs:['DP','SP','CJ']},
+      VIE28:{techs:['DP','SP','CJ']}
     }},
+  {py:'26172', client:'Hotel On Vacation', activity:'Ampliación sistema de incendio',
+    slots:{JUE27:{techs:['FC','SM']}, VIE28:{techs:['FC','SM']}, SAB29:{techs:['FC','SM']}}},
   {py:'26161', client:'Cartón Colombia', activity:'Mantenimiento correctivo y diagnóstico del sistema de detección de incendios, Molino 6',
-    slots:{MAR18:{techs:['SP','GG','CJ']}, MIE19:{techs:['GG']}, JUE20:{techs:['GG']}}},
-  {py:'26157', client:'Hoyostools Centro', activity:'Mantenimiento sistema de seguridad',
-    slots:{MAR18:{techs:['AB']}, MIE19:{techs:['AB']}}},
-  {py:'26164', client:'Conjunto Residencial Balcón Campestre', activity:'Inspección sistema de control de acceso',
-    slots:{MAR18:{techs:['JC']}}}
+    slots:{LUN24:{techs:['GG']}}},
+  {py:'', client:'Oficina Satech', activity:'Jornada administrativa',
+    slots:{LUN24:{techs:['CJ']}, MAR25:{techs:['CJ']}, SAB29:{techs:['CJ']}}}
 ];
 
 const EXTRA_NOTES = {};
@@ -659,7 +659,6 @@ const EXTRA_NOTES = {};
 const OFF_DAYS = {};
 
 const GENERAL_NOTES = [
-  'Lunes 17 de agosto es día festivo — no hay programación de actividades.',
   'Wilber Duque, Alex Bernal, Jorge Villota y Luis García son coordinadores: se mueven entre proyectos según necesidad, por eso no siempre tienen una tarea fija todos los días.'
 ];
 
