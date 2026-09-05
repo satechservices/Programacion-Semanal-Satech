@@ -507,7 +507,7 @@
 
   <div class="eyebrow">Programación semanal</div>
   <h1>Bienvenido a la programación semanal de Satech Services</h1>
-  <div class="date-range">24 al 29 de agosto</div>
+  <div class="date-range">7 al 12 de septiembre</div>
 
   <div class="picker">
     <div class="picker-label">Selecciona tu nombre</div>
@@ -569,12 +569,12 @@
 
 <script>
 const DAYS = [
-  {key:'LUN24', label:'Lunes 24', short:'LUN', num:'24'},
-  {key:'MAR25', label:'Martes 25', short:'MAR', num:'25'},
-  {key:'MIE26', label:'Miércoles 26', short:'MIÉ', num:'26'},
-  {key:'JUE27', label:'Jueves 27', short:'JUE', num:'27'},
-  {key:'VIE28', label:'Viernes 28', short:'VIE', num:'28'},
-  {key:'SAB29', label:'Sábado 29', short:'SÁB', num:'29'}
+  {key:'LUN07', label:'Lunes 7', short:'LUN', num:'7'},
+  {key:'MAR08', label:'Martes 8', short:'MAR', num:'8'},
+  {key:'MIE09', label:'Miércoles 9', short:'MIÉ', num:'9'},
+  {key:'JUE10', label:'Jueves 10', short:'JUE', num:'10'},
+  {key:'VIE11', label:'Viernes 11', short:'VIE', num:'11'},
+  {key:'SAB12', label:'Sábado 12', short:'SÁB', num:'12'}
 ];
 
 // Días festivos / no laborables de la semana — se muestran así en vez de "sin actividad".
@@ -614,42 +614,42 @@ const ROLE_GROUPS = [
 
 const CLIENT_COLOR = {
   'Jardín Plaza Cali':'var(--c-cali)',
+  'JC1':'var(--c-jc1)',
   'Jardín Plaza Cúcuta':'var(--c-cucuta)',
   'Colombina':'var(--c-colombina)',
   'Cartón Colombia':'var(--c-carton)',
-  'Hotel On Vacation':'var(--c-hotel)',
-  'Oficina Satech':'var(--c-interno)'
+  'Plaza de Toros':'var(--c-toros)'
 };
 
 
 const ASSIGNMENTS = [
-  {py:'26153', client:'Jardín Plaza Cali', activity:'Mantenimiento sistema de seguridad electrónica agosto (desmonte de cableado estructural de CCTV e incendio)',
+  {py:'26187', client:'Jardín Plaza Cali', activity:'Mantenimiento sistema de seguridad electrónica, septiembre',
     slots:{
-      LUN24:{techs:['JC','JF','CE']},
-      MAR25:{techs:['JC','JF','CE','GG']},
-      MIE26:{techs:['JC','JF','CE','GG']},
-      JUE27:{techs:['JC','JF','CE','GG']},
-      VIE28:{techs:['JC','JF','CE','GG']},
-      SAB29:{techs:['JC','JF','CE','GG']}
+      LUN07:{techs:['CE','GG','JC']},
+      MAR08:{techs:['CE','GG','JC']},
+      MIE09:{techs:['JF','CE','GG','JC']},
+      JUE10:{techs:['JF','CE','GG','JC']},
+      VIE11:{techs:['JF','CE','JC']},
+      SAB12:{techs:['JF','CE','JC']}
     }},
-  {py:'26154', client:'Jardín Plaza Cúcuta', activity:'Mantenimiento sistema de seguridad electrónica agosto',
-    slots:{LUN24:{techs:['AM','SR']}, MAR25:{techs:['AM','SR']}, MIE26:{techs:['AM','SR']}, JUE27:{techs:['AM','SR']}, VIE28:{techs:['AM','SR']}, SAB29:{techs:['AM','SR']}}},
-  {py:'26162', client:'Colombina', activity:'Implementación de sistema de detección de incendio en Minimarket',
-    slots:{LUN24:{techs:['FC','SM']}, MAR25:{techs:['FC','SM']}, MIE26:{techs:['FC','SM']}}},
-  {py:'26163', client:'Colombina', activity:'Revisión de sistema de detección de incendio, planta 2',
+  {py:'26191', client:'JC1', activity:'Instalación botón de pánico',
+    slots:{LUN07:{techs:['JC','GG']}}},
+  {py:'26188', client:'Jardín Plaza Cúcuta', activity:'Mantenimiento sistema de seguridad electrónica, septiembre',
+    slots:{LUN07:{techs:['AM','SR']}, MAR08:{techs:['AM','SR']}, MIE09:{techs:['AM','SR']}, JUE10:{techs:['AM','SR']}, VIE11:{techs:['AM','SR']}, SAB12:{techs:['AM','SR']}}},
+  {py:'26195', client:'Colombina', activity:'Mantenimiento de sistema de incendio',
     slots:{
-      LUN24:{techs:['DP','SP']},
-      MAR25:{techs:['DP','SP']},
-      MIE26:{techs:['DP','SP','CJ']},
-      JUE27:{techs:['DP','SP','CJ']},
-      VIE28:{techs:['DP','SP','CJ']}
+      LUN07:{techs:['FC','DP','WD']},
+      MAR08:{techs:['FC','DP','WD']},
+      MIE09:{techs:['FC','DP']},
+      JUE10:{techs:['FC','DP']},
+      VIE11:{techs:['FC','DP']}
     }},
-  {py:'26172', client:'Hotel On Vacation', activity:'Ampliación sistema de incendio',
-    slots:{JUE27:{techs:['FC','SM']}, VIE28:{techs:['FC','SM']}, SAB29:{techs:['FC','SM']}}},
-  {py:'26161', client:'Cartón Colombia', activity:'Mantenimiento correctivo y diagnóstico del sistema de detección de incendios, Molino 6',
-    slots:{LUN24:{techs:['GG']}}},
-  {py:'', client:'Oficina Satech', activity:'Jornada administrativa',
-    slots:{LUN24:{techs:['CJ']}, MAR25:{techs:['CJ']}, SAB29:{techs:['CJ']}}}
+  {py:'', client:'Cartón Colombia', activity:'Inspección mensual',
+    slots:{VIE11:{techs:['GG']}, SAB12:{techs:['GG']}}},
+  {py:'26046', client:'Plaza de Toros', activity:'Mantenimiento preventivo del sistema de seguridad electrónica',
+    slots:{LUN07:{techs:['SP','SM','CJ']}, MAR08:{techs:['SP','SM','CJ']}, MIE09:{techs:['SP','SM','CJ']}, JUE10:{techs:['SP','SM','CJ']}, VIE11:{techs:['SP','SM','CJ']}}},
+  {py:'', client:'Plaza de Toros', activity:'Reparación de techo',
+    slots:{LUN07:{techs:['JF']}, MAR08:{techs:['JF']}}}
 ];
 
 const EXTRA_NOTES = {};
